@@ -5,13 +5,13 @@
     <script src="https://kit.fontawesome.com/2c9832e6de.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="../style/main.css">
     <link rel="stylesheet" href="../style/contact.css">
-    <script src="../src/script.js"></script>
+    <script defer src="../src/script.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 
-<body>
+<body id="body">
     <header>
         <h1><a href="../index.html">Logo/Nombre</a></h1>
         <div class="navbar">
@@ -25,18 +25,26 @@
             <h2>Contact us</h2>
             <p>Please contact us and we will get in touch as soon as possible!</p>
             <form>
-                <label for="input-nombre">Name and surname</label><input type="text" placeholder="John Doe"
-                    name="input-nombre" id="input-nombre">
-                <label for="input-email">Email</label><input type="email" placeholder="johndoe@rebootacademy.com"
-                    name="input-email" id="input-email">
-                <label for="input-tel">Phone number</label><input type="tel" placeholder="+34 666 333 999"
-                    name="input-tel" id="input-tel">
-                <label for="input-asunto">Issue</label><input type="text" placeholder="Issue" name="input-asunto"
-                    id="input-asunto">
-                <label for="input-mensaje">Email content</label><textarea name="input-mensaje"
-                    placeholder="Please, explain your problem here" id="input-mensaje" cols="30" rows="10"></textarea>
-                <button type="button">Send</button>
+                <label for="input-nombre">Name and surname</label>
+                <input type="text" placeholder="John Doe"name="input-nombre" id="input-nombre" required>
+
+                <label for="input-email">Email</label>
+                <input type="email" placeholder="johndoe@rebootacademy.com" name="input-email" id="input-email" required>
+
+                <label for="input-tel">Phone number</label>
+                <input type="tel" placeholder="+34 666 333 999" name="input-tel" id="input-tel" required>
+
+                <label for="input-asunto">Issue</label>
+                <input type="text" placeholder="Issue" name="input-asunto" id="input-asunto" required>
+
+                <label for="input-mensaje">Email content</label>
+                <textarea name="input-mensaje"placeholder="Please, explain your problem here" id="input-mensaje" cols="30" rows="10" required></textarea>
+                
+                <button id="send-button" type="submit">Send</button>
             </form>
+        </div>
+        <div class="imageForm">
+            <img src="../assets/images/Professor_Oak.webp" alt="">
         </div>
     </main>
 
