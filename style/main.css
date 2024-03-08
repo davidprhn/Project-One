@@ -1,3 +1,11 @@
+html {
+    margin: 0;
+}
+
+body {
+    padding: 0 10%;
+}
+
 header {
     display: flex;
     justify-content: space-between;
@@ -19,3 +27,4 @@ footer {
     justify-content: space-around;
     width: 100%;
 }
+

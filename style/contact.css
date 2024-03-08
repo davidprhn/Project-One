@@ -1,0 +1,32 @@
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 5% 12%;
+}
+
+label {
+    padding: 1% 0;
+}
+
+input, textarea {
+    padding: 10px 15px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-top: 1%;
+}
+
+.contactForm {
+    width: 40%;
+    background-color: greenyellow;
+}
+
+p {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
