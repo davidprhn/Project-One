@@ -1,0 +1,23 @@
+.card{
+    background-color: green;
+    color: white;
+    border-radius: 6px;
+    width: 23%;
+    text-align: center;
+    padding: 1em 0.5em;
+}
+.body-card div{
+    padding: 5px
+
+}
+
+.text-card{
+    font-size: 20px;
+}
+main{
+    padding: 5%;
+}
+.image-card{
+    width: 50%;
+    object-fit: contain;
+}
