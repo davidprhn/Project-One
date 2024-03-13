@@ -29,6 +29,8 @@ button {
 }
 .imageForm{
     display: flex;
+    padding: 1%;
+    margin: 2% 0%;
 }
 
 p {

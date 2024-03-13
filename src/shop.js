@@ -49,6 +49,7 @@ function mostrarProductos(){
         inputQuantity = document.createElement("input")
         inputQuantity.classList.add("input-card")
         inputQuantity.setAttribute("type", "number")
+        inputQuantity.setAttribute("id", "input-"+counter)
 
         button = document.createElement("button")
         button.classList.add("button-card")
@@ -64,9 +65,7 @@ function mostrarProductos(){
         cardBody.appendChild(button)
         card.appendChild(cardImage)
         card.appendChild(cardBody)
-        shop.appendChild(card)a  
-        SVGDefsElement jas
-        FileSystemFileHandlez adsasd
+        shop.appendChild(card)
         counter++;
     });
 }
@@ -75,24 +74,92 @@ function addToCart(element){
     main = document.getElementsByTagName("main")[0]
     shop = document.getElementById("shop")
     cart = document.getElementById("cart")
+    subtotal = document.getElementById("subtotal")
     if ( cart == undefined){
         cart = document.createElement("div")
         cart.setAttribute("id", "cart")
         cart.classList.add("cart")
         shop.classList.add("w-70")
         main.appendChild(cart)
+
         title = document.createElement("div")
         title.classList.add("shop-title")
         title.textContent = "Shopping Cart"
         cart.appendChild(title)
+
+        shopBody = document.createElement("div")
+        shopBody.classList.add("shop-body")
+        cart.appendChild(shopBody)
+
+        subtotal = document.createElement("div")
+        subtotal.classList.add("shop-subtotal")
+        subtotal.setAttribute("id", "subtotal")
+        cart.appendChild(subtotal)
+    }
+    input = document.getElementById("input-" + element.dataset.idPokemon)
+    quantity = input.value
+    if (quantity == ""){
+        quantity = 0
     }
 
+    brief = document.getElementById("pokemon-" + element.dataset.idPokemon)
+    if (brief == undefined){
+        createNewBrief(element, quantity)
+    }else{
+        modifyBrief(element, brief, quantity)
+    }
+    getTotal(subtotal)
+
+}
+
+function createNewBrief(element, quantity){
     brief = document.createElement("div")
     brief.classList.add("brief")
     brief.setAttribute('data-id-pokemon', element.dataset.idPokemon)
-    briefText = document.createElement("span")
-    briefText.textContent = Objetos[element.dataset.idPokemon].name
-    brief.appendChild(briefText)
-    cart.appendChild(brief)
+    brief.setAttribute('id', "pokemon-" + element.dataset.idPokemon)
 
+    briefText = document.createElement("span")
+    briefText.textContent = Objetos[element.dataset.idPokemon].name + " x "
+
+    briefQuantity = document.createElement("span")
+    briefQuantity.textContent =  quantity 
+
+    briefEqual = document.createElement("span")
+    briefEqual.textContent = " = "
+
+    briefPricing = document.createElement("span")
+    briefPricing.classList.add("prices")
+    briefPricing.textContent = (parseFloat(Objetos[element.dataset.idPokemon].price) * parseInt(quantity))
+
+    briefMoneyType = document.createElement("span")
+    briefMoneyType.textContent = " €";
+
+    brief.appendChild(briefText)
+    brief.appendChild(briefQuantity)
+    brief.appendChild(briefEqual)
+    brief.appendChild(briefPricing)
+    brief.appendChild(briefMoneyType)
+    shopBody.appendChild(brief)
+}
+
+function modifyBrief(element, brief, newQuantity) {
+
+    quantity = parseInt(brief.children[1].textContent) + parseInt(newQuantity)
+
+    briefQuantity = brief.children[1]
+    briefQuantity.textContent = quantity 
+
+    briefPricing = brief.children[3]
+    briefPricing.textContent = (parseFloat(Objetos[element.dataset.idPokemon].price) * parseInt(quantity))
+
+}
+
+function getTotal(DOMElement){
+    total = 0;
+    prices = [...document.getElementsByClassName("prices")]
+
+    prices.forEach(element => {
+        total += parseFloat(element.textContent)
+    });
+    DOMElement.textContent = "Total = " + total + " €"
 }
