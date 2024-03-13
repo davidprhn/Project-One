@@ -21,3 +21,30 @@ main{
     width: 50%;
     object-fit: contain;
 }
+
+.shop{
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+}
+.w-70{
+    width: 70%;
+}
+
+
+.cart{
+    width: 25%;
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.brief{
+    width: 100%;
+    padding: 5px 0;
+}
+
+.shop-title{
+    width: 100%;
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}
