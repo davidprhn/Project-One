@@ -12,7 +12,7 @@ html {
     margin: 0;
     background-image: url("../assets/images/Kanto.webp");
     background-size: cover;
-    background-repeat: no-repeat;
+    background-repeat: repeat;
     height: 100%;
     font-family: 'Press Start 2P';
 }
@@ -100,6 +100,7 @@ main>div {
 .mainTitles {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .mainImages {
@@ -113,4 +114,31 @@ main>div {
     height: 100%;
     text-align: center;
     padding: 10px 15px;
+    justify-content: space-around;
+    z-index: 10;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
 }
