@@ -23,6 +23,7 @@ function mostrarProductos(){
 
     shop = document.createElement("article")
     shop.classList.add("shop")
+    shop.classList.add("w-70")
     shop.setAttribute("id", "shop")
     main.appendChild(shop)
 
@@ -86,7 +87,6 @@ function addToCart(element){
         cart = document.createElement("div")
         cart.setAttribute("id", "cart")
         cart.classList.add("cart")
-        shop.classList.add("w-70")
         main.appendChild(cart)
 
         title = document.createElement("div")
