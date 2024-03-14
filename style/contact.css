@@ -18,6 +18,12 @@ input, textarea {
 button {
     padding: 10px 15px;
     margin-top: 1%;
+    border-radius: 10px;
+}
+
+button:hover {
+background-color: rgb(241, 7, 7);
+transform: scale(1.2);
 }
 
 .contactForm {
