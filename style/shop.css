@@ -16,6 +16,7 @@
 }
 main{
     padding: 5%;
+    background-color: hsl(208, 100%, 97%, 0.7);
 }
 .image-card{
     width: 50%;
@@ -25,16 +26,16 @@ main{
 .shop{
     display: inline-flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     gap: 10px;
 }
 .w-70{
-    width: 70%;
+    width: 65%;
+    justify-content: space-between;
 }
 
 
 .cart{
-    width: 25%;
+    width: 30%;
     display: inline-flex;
     flex-wrap: wrap;
 }
@@ -57,4 +58,16 @@ main{
 .shop-subtotal{
     padding-top:5px;
     margin: auto;
+}
+
+.delete-button,
+input[type="submit"],
+input[type="reset"] {
+    background: none;
+    color: red;
+    border: 0;
+    padding: 3px;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
 }

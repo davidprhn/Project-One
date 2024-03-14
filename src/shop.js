@@ -8,7 +8,9 @@ const Objetos=[
     new Pokemon("Pikachu", 25,"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"), 
     new Pokemon("Charmander", 15,"https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"), 
     new Pokemon("Bulbasaur", 14, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"), 
-    new Pokemon("Squirtle", 16, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png")
+    new Pokemon("Squirtle", 16, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"),
+    new Pokemon("Dragonite", 54, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png"),
+    new Pokemon("Mewtwo", 63, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png"),
 ]
 
 window.addEventListener("load", (event) => {
@@ -21,6 +23,7 @@ function mostrarProductos(){
 
     shop = document.createElement("article")
     shop.classList.add("shop")
+    shop.classList.add("w-70")
     shop.setAttribute("id", "shop")
     main.appendChild(shop)
 
@@ -49,6 +52,7 @@ function mostrarProductos(){
         inputQuantity = document.createElement("input")
         inputQuantity.classList.add("input-card")
         inputQuantity.setAttribute("type", "number")
+        inputQuantity.setAttribute("value", 0)
         inputQuantity.setAttribute("id", "input-"+counter)
 
         button = document.createElement("button")
@@ -75,11 +79,14 @@ function addToCart(element){
     shop = document.getElementById("shop")
     cart = document.getElementById("cart")
     subtotal = document.getElementById("subtotal")
-    if ( cart == undefined){
+    input = document.getElementById("input-" + element.dataset.idPokemon)
+    quantity = input.value
+    if (quantity != 0) {
+  
+        if ( cart == undefined){
         cart = document.createElement("div")
         cart.setAttribute("id", "cart")
         cart.classList.add("cart")
-        shop.classList.add("w-70")
         main.appendChild(cart)
 
         title = document.createElement("div")
@@ -95,20 +102,20 @@ function addToCart(element){
         subtotal.classList.add("shop-subtotal")
         subtotal.setAttribute("id", "subtotal")
         cart.appendChild(subtotal)
-    }
-    input = document.getElementById("input-" + element.dataset.idPokemon)
-    quantity = input.value
-    if (quantity == ""){
-        quantity = 0
+        }
+
+
+        brief = document.getElementById("pokemon-" + element.dataset.idPokemon)
+        if (brief == undefined) {
+            createNewBrief(element, quantity)
+        } else {
+            modifyBrief(element, brief, quantity)
+        }
+        getTotal(subtotal)
     }
 
-    brief = document.getElementById("pokemon-" + element.dataset.idPokemon)
-    if (brief == undefined){
-        createNewBrief(element, quantity)
-    }else{
-        modifyBrief(element, brief, quantity)
-    }
-    getTotal(subtotal)
+
+    
 
 }
 
@@ -134,11 +141,19 @@ function createNewBrief(element, quantity){
     briefMoneyType = document.createElement("span")
     briefMoneyType.textContent = " €";
 
+    briefDeleteButton = document.createElement("button")
+    briefDeleteButton.textContent = "X";
+    briefDeleteButton.setAttribute('data-id-pokemon', [element.dataset.idPokemon])
+    briefDeleteButton.classList.add("delete-button")
+    briefDeleteButton.addEventListener("click", function (element) {
+        removeItem(this)
+    })
     brief.appendChild(briefText)
     brief.appendChild(briefQuantity)
     brief.appendChild(briefEqual)
     brief.appendChild(briefPricing)
     brief.appendChild(briefMoneyType)
+    brief.appendChild(briefDeleteButton)
     shopBody.appendChild(brief)
 }
 
@@ -154,6 +169,13 @@ function modifyBrief(element, brief, newQuantity) {
 
 }
 
+function removeItem(element) {
+    brief = document.getElementById("pokemon-" + element.dataset.idPokemon)
+    brief.remove();
+    subtotal = document.getElementById("subtotal")
+    getTotal(subtotal)
+}
+
 function getTotal(DOMElement){
     total = 0;
     prices = [...document.getElementsByClassName("prices")]
@@ -161,5 +183,10 @@ function getTotal(DOMElement){
     prices.forEach(element => {
         total += parseFloat(element.textContent)
     });
-    DOMElement.textContent = "Total = " + total + " €"
+    if(total <= 0){
+        cart = document.getElementById("cart")
+        cart.remove()
+    }else{
+        DOMElement.textContent = "Total = " + total + " €"
+    }
 }
