@@ -13,6 +13,7 @@ html {
     background-image: url("../assets/images/Kanto.webp");
     background-size: cover;
     background-repeat: repeat;
+    background-position: center;
     height: 100%;
     font-family: 'Press Start 2P';
 }
@@ -147,5 +148,6 @@ main>div {
     display: block;
 }
 
-img {
+a:visited {
+    color: black;
 }
