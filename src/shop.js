@@ -1,18 +1,3 @@
-function Pokemon(name,price,image){
-    this.image = image
-    this.name = name
-    this.price = price
-}
-
-const Objetos=[
-    new Pokemon("Pikachu", 25,"https://assets.pokemon.com/assets/cms2/img/pokedex/full/025.png"), 
-    new Pokemon("Charmander", 15,"https://assets.pokemon.com/assets/cms2/img/pokedex/full/004.png"), 
-    new Pokemon("Bulbasaur", 14, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png"), 
-    new Pokemon("Squirtle", 16, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/007.png"),
-    new Pokemon("Dragonite", 54, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/149.png"),
-    new Pokemon("Mewtwo", 63, "https://assets.pokemon.com/assets/cms2/img/pokedex/full/150.png"),
-]
-
 window.addEventListener("load", (event) => {
    mostrarProductos()
 
@@ -28,7 +13,7 @@ function mostrarProductos(){
 
     counter=0;
 
-    Objetos.forEach(element => {
+    localPokemons.forEach(element => {
         card = document.createElement("div")
         card.classList.add("card")
 
