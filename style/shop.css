@@ -38,7 +38,8 @@ main{
     width: 30%;
     display: inline-flex;
     flex-wrap: wrap;
-}
+    justify-content: center;
+    }
 .brief{
     width: 100%;
     padding: 5px 0;
@@ -56,7 +57,9 @@ main{
     border-bottom: 2px solid black;
 }
 .shop-subtotal{
-    padding-top:5px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin: auto;
 }
 
@@ -79,4 +82,18 @@ input[type="reset"] {
 
 .cart-part *{
     width: 45%;
+}
+.cart-button{
+    width: 100%;
+}
+
+.cart button {
+    padding: 10px 15px;
+    margin-top: 1%;
+    border-radius: 10px;
+}
+
+.cart button:hover {
+    background-color: rgb(241, 7, 7);
+    transform: scale(1.2);
 }

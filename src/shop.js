@@ -91,6 +91,16 @@ function addToCart(element){
         subtotal.classList.add("shop-subtotal")
         subtotal.setAttribute("id", "subtotal")
         cart.appendChild(subtotal)
+
+        buttonPadre = document.createElement("div")
+
+        button = document.createElement("button")
+        button.classList.add("shop-button")
+            button.textContent = "Buy now"
+        button.setAttribute("id", "cart-button")
+            buttonPadre.appendChild(button)
+            cart.appendChild(buttonPadre)
+
         }
 
 
