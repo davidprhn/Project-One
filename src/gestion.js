@@ -7,5 +7,5 @@ function cratePokemon() {
 
     localPokemons.push({ name: newName, price: newPrice, image: newImage })
     localStorage.setItem("Pokemons", JSON.stringify(localPokemons));
-
+    alert("A new Pokemon has been registered")
 }

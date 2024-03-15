@@ -8,6 +8,6 @@ function login(){
     if(email=="pokeadmin@gmail.com" && pass=="root"){
         location.replace("http://127.0.0.1:5500/gestion/gestion.html")
     }else{
-        alert("Credenciales Inválidas")
+        alert("Invalid credentials")
     }
 }
