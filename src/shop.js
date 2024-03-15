@@ -30,6 +30,9 @@ function mostrarProductos(){
         cardText.classList.add("text-card")
         cardText.textContent = element.name
 
+        cartPart = document.createElement("div")
+        cartPart.classList.add("cart-part")
+
         price = document.createElement("div")
         price.classList.add("price-card")
         price.textContent = element.price + " €"
@@ -50,8 +53,9 @@ function mostrarProductos(){
 
         cardBody.appendChild(cardText)
         cardBody.appendChild(price)
-        cardBody.appendChild(inputQuantity)
-        cardBody.appendChild(button)
+        cartPart.appendChild(inputQuantity)
+        cartPart.appendChild(button)
+        cardBody.appendChild(cartPart)
         card.appendChild(cardImage)
         card.appendChild(cardBody)
         shop.appendChild(card)
@@ -111,7 +115,7 @@ function createNewBrief(element, quantity){
     brief.setAttribute('id', "pokemon-" + element.dataset.idPokemon)
 
     briefText = document.createElement("span")
-    briefText.textContent = Objetos[element.dataset.idPokemon].name + " x "
+    briefText.textContent = localPokemons[element.dataset.idPokemon].name + " x "
 
     briefQuantity = document.createElement("span")
     briefQuantity.textContent =  quantity 
@@ -121,7 +125,7 @@ function createNewBrief(element, quantity){
 
     briefPricing = document.createElement("span")
     briefPricing.classList.add("prices")
-    briefPricing.textContent = (parseFloat(Objetos[element.dataset.idPokemon].price) * parseInt(quantity))
+    briefPricing.textContent = (parseFloat(localPokemons[element.dataset.idPokemon].price) * parseInt(quantity))
 
     briefMoneyType = document.createElement("span")
     briefMoneyType.textContent = " €";
@@ -150,7 +154,7 @@ function modifyBrief(element, brief, newQuantity) {
     briefQuantity.textContent = quantity 
 
     briefPricing = brief.children[3]
-    briefPricing.textContent = (parseFloat(Objetos[element.dataset.idPokemon].price) * parseInt(quantity))
+    briefPricing.textContent = (parseFloat(localPokemons[element.dataset.idPokemon].price) * parseInt(quantity))
 
 }
 

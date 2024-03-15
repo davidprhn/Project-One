@@ -6,7 +6,7 @@ function login(){
     pass = document.getElementById("input-pass").value
 
     if(email=="pokeadmin@gmail.com" && pass=="root"){
-        location.replace("http://127.0.0.1:5500/index.html")
+        location.replace("http://127.0.0.1:5500/gestion/gestion.html")
     }else{
         alert("Credenciales Inválidas")
     }

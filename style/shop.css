@@ -71,3 +71,12 @@ input[type="reset"] {
     cursor: pointer;
     outline: inherit;
 }
+
+.cart-part{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cart-part *{
+    width: 45%;
+}
