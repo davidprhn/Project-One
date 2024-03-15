@@ -1,6 +1,6 @@
-document.getElementById("create-button").addEventListener("click", cratePokemon)
+document.getElementById("create-button").addEventListener("click", createPokemon)
 
-function cratePokemon() {
+function createPokemon() {
     newName = document.getElementById("input-name").value
     newPrice = document.getElementById("input-price").value
     newImage = document.getElementById("input-img").value
